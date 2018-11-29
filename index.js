@@ -1,6 +1,7 @@
 'use strict';
 
-const crypto = require('crypto');
+const crypto = require('crypto'),
+  presignedRoutes = require('./express/presignedRoutes');
 
 class NotFoundError extends Error { }
 
@@ -134,4 +135,4 @@ class Storage {
   }
 }
 
-module.exports = Storage;
+module.exports = { Storage, NotFoundError, presignedRoutes };
