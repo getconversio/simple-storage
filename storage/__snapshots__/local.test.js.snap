@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`storage/local fetchText should return the file content 1`] = `"foo"`;

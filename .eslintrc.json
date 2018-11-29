@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "extends": ["conversio", "plugin:jest/recommended"],
+  "plugins": ["jest"],
+  "env": {
+    "jest/globals": true
+  }
+}

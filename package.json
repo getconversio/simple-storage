@@ -1,0 +1,24 @@
+{
+  "name": "simple-storage",
+  "version": "1.0.0",
+  "description": "Simple storage layer for local/S3 storage",
+  "main": "index.js",
+  "repository": "https://github.com/getconversio/simple-storage",
+  "author": "Stefano Sala <stefano@conversio.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-conversio": "^3.0.0",
+    "eslint-plugin-jest": "^22.1.0",
+    "jest": "^23.6.0",
+    "nock": "^10.0.2"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.366.0",
+    "connect-multiparty": "^2.2.0",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "test": "jest && eslint ."
+  }
+}
