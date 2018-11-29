@@ -29,4 +29,6 @@ module.exports = ({ storage, enableUpload, router }) => {
         });
       });
   }
+
+  return router;
 };
