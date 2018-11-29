@@ -1,5 +1,5 @@
 {
-  "name": "simple-storage",
+  "name": "@getconversio/simple-storage",
   "version": "1.0.0",
   "description": "Simple storage layer for local/S3 storage",
   "main": "index.js",
