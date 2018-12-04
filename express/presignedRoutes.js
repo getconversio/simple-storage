@@ -5,7 +5,7 @@ const multipart = require('connect-multiparty'),
   uuid = require('uuid');
 
 module.exports = ({ storage, enableUpload, router }) => {
-  router.route('/temp')
+  router.route(storage.options.apiPath + '/temp')
     .post((req, res, next) => {
       const key = `temp/${uuid.v1()}`;
 
@@ -21,7 +21,7 @@ module.exports = ({ storage, enableUpload, router }) => {
     });
 
   if (enableUpload) {
-    router.route('/:key(*)')
+    router.route(storage.options.apiPath + '/:key(*)')
       .put(multipart(), (req, res, next) => {
         fs.rename(req.files.file.path, storage.options.localDirectory + '/' + req.params.key, err => {
           if (err) return next(err);

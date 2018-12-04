@@ -44,6 +44,8 @@ const isDataUrl = s => s.indexOf('data:') === 0 && s.includes('base64,');
 
 class Storage {
   constructor(options) {
+    this.options = options;
+
     /* eslint global-require: off */
     this.storage = new (require(`./storage/${options.storageType}`))(options);
     this.baseUrl = options.baseUrl;
@@ -110,7 +112,7 @@ class Storage {
    * @return {String}
    */
   resolve(file) {
-    return isDataUrl(file) ? file : this.options.baseUrl + file;
+    return isDataUrl(file) ? file : this.options.basePublicUrl + '/' + file;
   }
 
   /**

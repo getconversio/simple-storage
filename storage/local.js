@@ -82,7 +82,7 @@ class Local {
    * @returns {Promise} resolves with the pre-signed url
    */
   async getPresignedPutUrl(key) {
-    return this.options.baseUrl + '/uploads/' + key;
+    return this.options.baseUrl + this.options.apiPath + key;
   }
 
   async copy(source, dest) {
