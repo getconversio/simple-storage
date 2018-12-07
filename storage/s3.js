@@ -7,6 +7,7 @@ class S3 {
     this.options = options;
 
     AWS.config.update({
+      region: options.s3.region,
       accessKeyId: options.s3.accessKey,
       secretAccessKey: options.s3.secretKey
     });
