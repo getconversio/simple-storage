@@ -7,17 +7,18 @@ const multipart = require('connect-multiparty'),
 module.exports = ({ storage, enableUpload, router }) => {
   router.route(storage.options.apiPath + '/temp')
     .post((req, res, next) => {
-      const key = `temp/${uuid.v1()}`;
+      try {
+        const key = `temp/${uuid.v1()}`;
 
-      storage.getPresignedPutUrl(key)
-        .then(url => {
-          res.json({
-            key,
-            url,
-            contentType: storage.options.contentType
-          });
-        })
-        .catch(next);
+        const url = storage.getPresignedPutUrl(key);
+        res.json({
+          key,
+          url,
+          contentType: storage.options.contentType
+        });
+      } catch (e) {
+        return next(e);
+      }
     });
 
   if (enableUpload) {
