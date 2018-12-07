@@ -102,14 +102,14 @@ class S3 {
    * @param {String|Number} key - A unique key to identify the upload
    * @param {Number} [opts.expires] - Number of seconds that the URL will last.
    *                                  Default is 900, aka 15mins.
-   * @returns {Promise} resolves with the pre-signed url
+   * @returns {String} the pre-signed url
    */
-  async getPresignedPutUrl(key, { expires = 900 } = { }) {
+  getPresignedPutUrl(key, { expires = 900 } = { }) {
     const params = this.getOptions(key);
     params.Expires = expires;
     params.ContentType = 'multipart/form-data';
 
-    return await this.s3.getSignedUrl('putObject', params).promise();
+    return this.s3.getSignedUrl('putObject', params);
   }
 
   /**
@@ -117,13 +117,13 @@ class S3 {
    * @param {String|Number} key - A unique key to identify the upload
    * @param {Number} [opts.expires] - Number of seconds that the URL will last.
    *                                  Default is 900, aka 15mins.
-   * @returns {Promise} resolves with the pre-signed url
+   * @returns {String} the pre-signed url
    */
-  async getPresignedGetUrl(key, { expires = 900 } = { }) {
+  getPresignedGetUrl(key, { expires = 900 } = { }) {
     const params = this.getOptions(key);
     params.Expires = expires;
 
-    return await this.s3.getSignedUrl('getObject', params).promise();
+    return this.s3.getSignedUrl('getObject', params);
   }
 
   /**
