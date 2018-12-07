@@ -132,7 +132,7 @@ class Storage {
     return this.storage.exists(...args);
   }
 
-  async getPresignedPutUrl(...args) {
+  getPresignedPutUrl(...args) {
     return this.storage.getPresignedPutUrl(...args);
   }
 }

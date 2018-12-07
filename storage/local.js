@@ -81,7 +81,7 @@ class Local {
    * @param {String} key
    * @returns {Promise} resolves with the pre-signed url
    */
-  async getPresignedPutUrl(key) {
+  getPresignedPutUrl(key) {
     return this.options.baseUrl + this.options.apiPath + '/' + key;
   }
 
